@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbw7n2hshocvo"]
+[gd_scene load_steps=11 format=3 uid="uid://bbw7n2hshocvo"]
 
 [ext_resource type="PackedScene" uid="uid://e88cbc7elxeg" path="res://pixel_car.glb" id="1_tjn2e"]
 [ext_resource type="Script" uid="uid://bkqwkqwc1oqfm" path="res://vehicleMovement.gd" id="1_w0p2i"]
 [ext_resource type="Script" uid="uid://c26lyl80xk4q5" path="res://CarX.gd" id="3_ywh4s"]
 [ext_resource type="Script" uid="uid://dg3ech4bnga6y" path="res://CarY.gd" id="4_kwhh3"]
 [ext_resource type="PackedScene" uid="uid://demfwwsq71dlj" path="res://chunk.tscn" id="5_4sclt"]
+[ext_resource type="Script" uid="uid://b78no1coovs8f" path="res://camera_3d.gd" id="6_ywh4s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4sclt"]
 size = Vector3(1.1289063, 1.2470703, 2.7927246)
@@ -41,6 +42,7 @@ transform = Transform3D(1.7316025, -0.0012006727, 0.0039525456, -0.0005882985, 1
 current = true
 fov = 49.2
 near = 0.25
+script = ExtResource("6_ywh4s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
 transform = Transform3D(1.1337614, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -0.07307446, 3.7132168, -0.51501465)
