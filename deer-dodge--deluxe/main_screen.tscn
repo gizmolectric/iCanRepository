@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbw7n2hshocvo"]
+[gd_scene load_steps=14 format=3 uid="uid://bbw7n2hshocvo"]
 
 [ext_resource type="PackedScene" uid="uid://e88cbc7elxeg" path="res://pixel_car.glb" id="1_tjn2e"]
 [ext_resource type="Script" uid="uid://bkqwkqwc1oqfm" path="res://vehicleMovement.gd" id="1_w0p2i"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://dg3ech4bnga6y" path="res://CarY.gd" id="4_kwhh3"]
 [ext_resource type="PackedScene" uid="uid://demfwwsq71dlj" path="res://chunk.tscn" id="5_4sclt"]
 [ext_resource type="Script" uid="uid://b78no1coovs8f" path="res://camera_3d.gd" id="6_ywh4s"]
+[ext_resource type="PackedScene" uid="uid://u57kwnwxi64f" path="res://deer.glb" id="7_4sv2p"]
+[ext_resource type="Script" uid="uid://cmslcchujjyh3" path="res://DeerX.gd" id="8_0osx7"]
+[ext_resource type="Script" uid="uid://dfpd33yqbpryw" path="res://DeerY.gd" id="9_62wn8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4sclt"]
 size = Vector3(1.1289063, 1.2470703, 2.7927246)
@@ -74,3 +77,11 @@ shape = SubResource("BoxShape3D_ue4rx")
 
 [node name="Node3D" parent="StaticBody3D" instance=ExtResource("5_4sclt")]
 transform = Transform3D(-2.5712579e-08, 0, 0.58823526, 0, 0.58823526, 0, -0.58823526, 0, -2.5712579e-08, 0.98262787, 0.5918981, 0.1701319)
+
+[node name="DeerX" parent="." instance=ExtResource("7_4sv2p")]
+transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, 0.31288046, 4.8311753, -21.521973)
+script = ExtResource("8_0osx7")
+
+[node name="DeerY" parent="." instance=ExtResource("7_4sv2p")]
+transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, 3.6500251, 5.125417, -21.521973)
+script = ExtResource("9_62wn8")

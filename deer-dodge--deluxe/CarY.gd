@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var forward_speed: float = 3.0
-@export var lane_distance: float = 1.9         # Distance between lanes
+@export var lane_distance: float = 1.95         # Distance between lanes
 @export var lane_count: int = 4                # Total number of lanes
 @export var lane_move_speed: float = 7.0       # How fast the car slides sideways
 
