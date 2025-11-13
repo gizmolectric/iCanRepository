@@ -1,12 +1,12 @@
 extends Node3D
 
-@export var forward_speed: float = 1.0
+@export var forward_speed: float = 0.5
 @export var lane_distance: float = 1.8         # Distance between lanes (X axis)
 @export var lane_count: int = 4                # Total number of lanes
 @export var lane_move_speed: float = 7.0       # How fast the car slides sideways
 
-@export var start_lane: int = 2                # Starting lane index (0 to lane_count - 1)
-@export var lane_center_offset: float = -2.8    # Shifts all lanes left/right in world space
+@export var start_lane: int = 1                # Starting lane index (0 to lane_count - 1)
+@export var lane_center_offset: float = 4.85    # Shifts all lanes left/right in world space
 
 @export var start_z: float = 10.2               # Where the car starts on the Z axis
 @export var z_offset: float = -15.0              # Shifts the whole lane system forward/backward
@@ -41,9 +41,9 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees = Vector3.ZERO
 
 func _input(event):
-	if event.is_action_pressed("CarX_Left"):
+	if event.is_action_pressed("DeerY_Left"):
 		_move_left()
-	elif event.is_action_pressed("CarX_Right"):
+	elif event.is_action_pressed("DeerY_Right"):
 		_move_right()
 
 func _move_left():
