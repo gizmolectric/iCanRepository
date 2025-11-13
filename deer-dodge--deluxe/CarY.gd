@@ -1,12 +1,13 @@
 extends Node3D
 
-@export var forward_speed: float = 0.0
-@export var lane_distance: float = 1.9        # Distance between lanes
-@export var lane_count: int = 4               # Total number of lanes
-@export var lane_move_speed: float = 7.0      # How fast the car slides sideways
+@export var forward_speed: float = 3.0
+@export var lane_distance: float = 1.9         # Distance between lanes
+@export var lane_count: int = 4                # Total number of lanes
+@export var lane_move_speed: float = 7.0       # How fast the car slides sideways
 
-@export var start_lane: int = 1               # Starting lane index (0 to lane_count - 1)
+@export var start_lane: int = 1                # Starting lane index (0 to lane_count - 1)
 @export var lane_center_offset: float = 4.85   # Shifts all lanes left/right in world space
+@export var z_offset: float = 5.55              # Shifts car forward/backward in world space
 
 var current_lane: int
 var target_x: float = 0.0
@@ -19,6 +20,7 @@ func _ready():
 	# Set the car’s starting position immediately (no sliding)
 	var pos = global_transform.origin
 	pos.x = target_x
+	pos.z += z_offset   # Apply Z offset
 	global_transform.origin = pos
 
 	# Lock rotation
@@ -37,9 +39,9 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees = Vector3.ZERO
 
 func _input(event):
-	if event.is_action_pressed("CarX_Left"):
+	if event.is_action_pressed("CarY_Left"):
 		_move_left()
-	elif event.is_action_pressed("CarX_Right"):
+	elif event.is_action_pressed("CarY_Right"):
 		_move_right()
 
 func _move_left():
