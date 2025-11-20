@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://dprlilqxy5hof"]
+
+[ext_resource type="Texture2D" uid="uid://di84c153g2j20" path="res://Screenshot 2025-10-30.png" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://kgc1sbige3va" path="res://main_menu.gd" id="1_jix8l"]
+[ext_resource type="Texture2D" uid="uid://db0mve2jt42ds" path="res://DEER DOGE 5.jpg" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://e60k2ujropg4" path="res://Screenshot 2025-10-30 191036.png" id="3_glbon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.15350077, 0.68556106, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 10
+shadow_offset = Vector2(1, 3)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jix8l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Screenshot20251030" type="Sprite2D" parent="Panel"]
+position = Vector2(-78, 326)
+scale = Vector2(0.8078106, 0.80781054)
+texture = ExtResource("1_fu7sn")
+
+[node name="Screenshot20251031" type="Sprite2D" parent="Panel"]
+position = Vector2(1204, 323)
+scale = Vector2(0.8078106, 0.80781054)
+texture = ExtResource("1_fu7sn")
+
+[node name="DeerDoge5" type="Sprite2D" parent="Panel"]
+position = Vector2(580, 325)
+scale = Vector2(1.6325, 1.6325)
+texture = ExtResource("2_jix8l")
+
+[node name="Screenshot20251030191036" type="Sprite2D" parent="Panel"]
+position = Vector2(-84.00001, 324)
+scale = Vector2(0.80596566, 0.80596554)
+texture = ExtResource("3_glbon")
+
+[node name="Screenshot20251030191037" type="Sprite2D" parent="Panel"]
+position = Vector2(1231, 330)
+scale = Vector2(0.80596566, 0.80596554)
+texture = ExtResource("3_glbon")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -105.0
+offset_right = 181.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.903319, 0.84788656, 0.96933955, 1)
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rhts7")
+text = "START GAME"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.903319, 0.84788656, 0.96933955, 1)
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rhts7")
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]
