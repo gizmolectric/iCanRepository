@@ -1,3 +1,6 @@
+Panel
+VBoxContainer
+Button
 CollisionShape3D
 RigidBody3D
 Camera3D
