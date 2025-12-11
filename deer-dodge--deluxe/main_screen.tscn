@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbw7n2hshocvo"]
+[gd_scene load_steps=18 format=3 uid="uid://bbw7n2hshocvo"]
 
 [ext_resource type="PackedScene" uid="uid://e88cbc7elxeg" path="res://pixel_car.glb" id="1_tjn2e"]
 [ext_resource type="Script" uid="uid://bkqwkqwc1oqfm" path="res://vehicleMovement.gd" id="1_w0p2i"]
 [ext_resource type="Script" uid="uid://c26lyl80xk4q5" path="res://CarX.gd" id="3_ywh4s"]
 [ext_resource type="Script" uid="uid://dg3ech4bnga6y" path="res://CarY.gd" id="4_kwhh3"]
 [ext_resource type="PackedScene" uid="uid://demfwwsq71dlj" path="res://chunk.tscn" id="5_4sclt"]
+[ext_resource type="Script" uid="uid://vd0y3xaslwmr" path="res://static_body_3d.gd" id="6_0osx7"]
 [ext_resource type="Script" uid="uid://b78no1coovs8f" path="res://camera_3d.gd" id="6_ywh4s"]
 [ext_resource type="PackedScene" uid="uid://u57kwnwxi64f" path="res://deer.glb" id="7_4sv2p"]
 [ext_resource type="Script" uid="uid://cmslcchujjyh3" path="res://DeerX.gd" id="8_0osx7"]
+[ext_resource type="Script" uid="uid://xdhdfy06ykn8" path="res://static_body_3d_2.gd" id="8_62wn8"]
 [ext_resource type="Script" uid="uid://dfpd33yqbpryw" path="res://DeerY.gd" id="9_62wn8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4sclt"]
@@ -19,7 +21,7 @@ size = Vector3(0.7851715, 0.78082275, 1.7667542)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ywh4s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ue4rx"]
-size = Vector3(37.07086, 1.1923981, 52.09616)
+size = Vector3(37.07086, 1.1923981, 73.10241)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4sv2p"]
 
@@ -74,12 +76,27 @@ shape = SubResource("BoxShape3D_ywh4s")
 collision_layer = 255
 collision_mask = 255
 physics_material_override = SubResource("PhysicsMaterial_ywh4s")
+script = ExtResource("6_0osx7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, -5.1260585e-13, 0, 1, 0, 5.1260585e-13, 0, 1, 0.8855888, 0.5672383, -12.605758)
 shape = SubResource("BoxShape3D_ue4rx")
 
 [node name="Node3D" parent="StaticBody3D" instance=ExtResource("5_4sclt")]
+transform = Transform3D(-2.5712579e-08, 0, 0.58823526, 0, 0.58823526, 0, -0.58823526, 0, -2.5712579e-08, 0.98262787, 0.5918981, 0.1701319)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.056)
+collision_layer = 255
+collision_mask = 255
+physics_material_override = SubResource("PhysicsMaterial_ywh4s")
+script = ExtResource("8_62wn8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, -5.1260585e-13, 0, 1, 0, 5.1260585e-13, 0, 1, 0.8855888, 0.5672383, -2.1026459)
+shape = SubResource("BoxShape3D_ue4rx")
+
+[node name="Node3D" parent="StaticBody3D2" instance=ExtResource("5_4sclt")]
 transform = Transform3D(-2.5712579e-08, 0, 0.58823526, 0, 0.58823526, 0, -0.58823526, 0, -2.5712579e-08, 0.98262787, 0.5918981, 0.1701319)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
